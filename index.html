@@ -1,127 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Participants and Activities Table</title>
+    <title>Sổ Nợ</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
-}
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
 
-h2 {
-    text-align: center;
-}
+        h2 {
+            text-align: center;
+        }
 
-.table-container {
-    overflow-x: auto;
-    margin: 20px 0;
-}
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    table-layout: fixed;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            table-layout: fixed;
+        }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-    width: 150px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
 
-th {
-    background-color: #4CAF50;
-    color: white;
-    font-weight: bold;
-}
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
 
-td {
-    background-color: #f2f2f2;
-}
+        td {
+            background-color: #f2f2f2;
+        }
 
-button {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
+        button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
 
-button:hover {
-    background-color: #45a049;
-}
+        button:hover {
+            background-color: #45a049;
+        }
 
-input[type="number"] {
-    width: 60px;
-    max-width: 100px;
-    padding: 5px;
-    margin-left: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
+        input[type="number"] {
+            width: 60px;
+            max-width: 100px;
+            padding: 5px;
+            margin-left: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
 
-input[type="checkbox"] {
-    margin-right: 5px;
-}
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
 
-input[type="text"] {
-    width: 100%;
-    border: none;
-    background: transparent;
-    text-align: center;
-}
+        input[type="text"] {
+            width: 100%;
+            border: none;
+            background: transparent;
+            text-align: center;
+        }
 
-th[contenteditable="true"] {
-    outline: none;
-    cursor: text;
-}
+        th[contenteditable="true"] {
+            outline: none;
+            cursor: text;
+        }
 
-#results {
-    margin-top: 20px;
-}
+        #results {
+            margin-top: 20px;
+        }
 
-th div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Aligns items to the start */
-}
+        th div {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
 
-th div span {
-    flex-grow: 1; /* Allows the text to take up only the required space */
-}
+        th div span {
+            flex-grow: 1;
+        }
 
-th button {
-    font-size: 12px;
-    padding: 5px 10px;
-    margin-left: 10px; /* Adds space between the text and button */
-    background-color: #45a049;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
+        th button {
+            font-size: 12px;
+            padding: 5px 10px;
+            margin-left: 10px;
+            background-color: #45a049;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
 
-th button:hover {
-    background-color: #388e3c;
-}
-
-
+        th button:hover {
+            background-color: #388e3c;
+        }
     </style>
 </head>
+
 <body>
     <h2>Tính Tiền Các Con Nợ</h2>
     <button onclick="addParticipant()">Thêm Con Nợ</button>
@@ -133,26 +134,26 @@ th button:hover {
                 <tr id="activityRow">
                     <th contenteditable="true">Con Nợ</th>
                     <th>
-                        <div><span contenteditable="true">A</span>
-<button type="button" onclick="selectAll(1)">Select All</button>
-</div>
-                        
+                        <div><span contenteditable="true">Của Nợ 1</span>
+                            <button type="button" onclick="selectAll(1)">Select All</button>
+                        </div>
+
                     </th>
                     <th>
-                        <div><span contenteditable="true">B</span>
-<button type="button" onclick="selectAll(2)">Select All</button>
-</div>
+                        <div><span contenteditable="true">Của Nợ 2</span>
+                            <button type="button" onclick="selectAll(2)">Select All</button>
+                        </div>
                     </th>
                     <th>
-                        <div><span contenteditable="true">C</span>
-<button type="button" onclick="selectAll(3)">Select All</button>
-</div>
+                        <div><span contenteditable="true">Của Nợ 3</span>
+                            <button type="button" onclick="selectAll(3)">Select All</button>
+                        </div>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text" value="Participant 1"></td>
+                    <td><input type="text" value="Con Nợ 1"></td>
                     <td>
                         <input type="checkbox" id="p1a1">
                         <input type="number" id="p1a1num" min="0" placeholder="0">
@@ -167,7 +168,7 @@ th button:hover {
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="text" value="Participant 2"></td>
+                    <td><input type="text" value="Con Nợ 2"></td>
                     <td>
                         <input type="checkbox" id="p2a1">
                         <input type="number" id="p2a1num" min="0" placeholder="0">
@@ -182,7 +183,7 @@ th button:hover {
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="text" value="Participant 3"></td>
+                    <td><input type="text" value="Con Nợ 3"></td>
                     <td>
                         <input type="checkbox" id="p3a1">
                         <input type="number" id="p3a1num" min="0" placeholder="0">
@@ -210,7 +211,7 @@ th button:hover {
             const newRow = table.insertRow(rowCount);
 
             const cell0 = newRow.insertCell(0);
-            cell0.innerHTML = `<input type="text" value="Participant ${rowCount + 1}">`;
+            cell0.innerHTML = `<input type="text" value="Con Nợ ${rowCount + 1}">`;
 
             for (let i = 1; i < columnCount; i++) {
                 const newCell = newRow.insertCell(i);
@@ -229,7 +230,7 @@ th button:hover {
             // Add a new header for the new activity
             const newHeader = document.createElement('th');
             newHeader.innerHTML = `
-                <div> <span contenteditable="true">Activity ${activityCount}</span>
+                <div> <span contenteditable="true">Của Nợ ${activityCount}</span>
                 <button type="button" onclick="selectAll(${activityCount})">Select All</button></div>
             `;
             activityRow.appendChild(newHeader);
@@ -293,7 +294,7 @@ th button:hover {
             document.getElementById('results').innerHTML = resultHtml;
         }
 
-function selectAll(activity) {
+        function selectAll(activity) {
             const table = document.getElementById('participantsTable');
             const rows = table.getElementsByTagName('tbody')[0].rows;
             for (let i = 0; i < rows.length; i++) {
