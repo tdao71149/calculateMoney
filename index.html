@@ -228,8 +228,10 @@ th button:hover {
 
             // Add a new header for the new activity
             const newHeader = document.createElement('th');
-            newHeader.contentEditable = true;
-            newHeader.textContent = `Activity ${activityCount}`;
+            newHeader.innerHTML = `
+                <div> <span contenteditable="true">Activity ${activityCount}</span>
+                <button type="button" onclick="selectAll(${activityCount})">Select All</button></div>
+            `;
             activityRow.appendChild(newHeader);
 
             // Add new cells for each participant in the new column
