@@ -32,9 +32,7 @@
         th,
         td {
             border: 1px solid #ddd;
-            padding: 12px;
             text-align: center;
-            width: 150px;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -44,6 +42,11 @@
             background-color: #4CAF50;
             color: white;
             font-weight: bold;
+            height:auto;
+        }
+
+        thead tr {
+            height: 40px !important;
         }
 
         td {
@@ -100,11 +103,18 @@
         th div {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
+        }
+        
+        .outer-container {
+            flex-grow: 1;
+            display: flex;
+            min-width: 1ch;
+            text-align: center;
         }
 
-        th div span {
-            flex-grow: 1;
+        .inner-container {
+            display: inline-block;
         }
 
         th button {
@@ -134,19 +144,27 @@
                 <tr id="activityRow">
                     <th contenteditable="true">Con Nợ</th>
                     <th>
-                        <div><span contenteditable="true">Của Nợ 1</span>
-                            <button type="button" onclick="selectAll(1)">Select All</button>
-                        </div>
-
-                    </th>
-                    <th>
-                        <div><span contenteditable="true">Của Nợ 2</span>
-                            <button type="button" onclick="selectAll(2)">Select All</button>
+                        <div id="outer-container">
+                            <div id="inner-container">
+                                <input type="checkbox" id="selectAllCheckbox" onclick="selectAll(1)">
+                                <span contenteditable="true">Của Nợ 1</span>
+                            </div>
                         </div>
                     </th>
                     <th>
-                        <div><span contenteditable="true">Của Nợ 3</span>
-                            <button type="button" onclick="selectAll(3)">Select All</button>
+                        <div id="outer-container">
+                            <div id="inner-container">
+                                <input type="checkbox" id="selectAllCheckbox" onclick="selectAll(2)">
+                                <span contenteditable="true">Của Nợ 2</span>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        <div id="outer-container">
+                            <div id="inner-container">
+                                <input type="checkbox" id="selectAllCheckbox" onclick="selectAll(3)">
+                                <span contenteditable="true">Của Nợ 3</span>
+                            </div>
                         </div>
                     </th>
                 </tr>
@@ -230,8 +248,12 @@
             // Add a new header for the new activity
             const newHeader = document.createElement('th');
             newHeader.innerHTML = `
-                <div> <span contenteditable="true">Của Nợ ${activityCount}</span>
-                <button type="button" onclick="selectAll(${activityCount})">Select All</button></div>
+                <div id="outer-container">
+                            <div id="inner-container">
+                                <input type="checkbox" id="selectAllCheckbox" onclick="${activityCount}">
+                                <span contenteditable="true">Của Nợ ${activityCount}</span>
+                            </div>
+                        </div>
             `;
             activityRow.appendChild(newHeader);
 
