@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sổ Nợ</title>
     <style>
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+            /* for other browsers that support this property */
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -42,7 +54,7 @@
             background-color: #4CAF50;
             color: white;
             font-weight: bold;
-            height:auto;
+            height: auto;
         }
 
         thead tr {
@@ -71,7 +83,7 @@
         }
 
         input[type="number"] {
-            width: 50px;
+            width: 100%;
             min-width: 40px;
             max-width: 100px;
             padding: 5px;
@@ -106,7 +118,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .outer-container {
             flex-grow: 1;
             display: flex;
@@ -134,10 +146,12 @@
 
         @media (max-width: 600px) {
             input[type="checkbox"] {
+
                 margin: 0px;
             }
 
             input[type="number"] {
+                width: 50px;
                 margin: 0px;
             }
         }
