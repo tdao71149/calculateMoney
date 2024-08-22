@@ -71,7 +71,8 @@
         }
 
         input[type="number"] {
-            width: 60px;
+            width: 50px;
+            min-width: 40px;
             max-width: 100px;
             padding: 5px;
             margin-left: 5px;
@@ -129,6 +130,16 @@
 
         th button:hover {
             background-color: #388e3c;
+        }
+
+        @media (max-width: 600px) {
+            input[type="checkbox"] {
+                margin: 0px;
+            }
+
+            input[type="number"] {
+                margin: 0px;
+            }
         }
     </style>
 </head>
